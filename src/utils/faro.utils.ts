@@ -2,6 +2,7 @@ import {
   ConsoleInstrumentation,
   ErrorsInstrumentation,
   EventAttributes,
+  LogLevel,
   SessionInstrumentation,
   faro,
   initializeFaro,
@@ -20,7 +21,9 @@ export const initFaro = () => {
       },
       instrumentations: [
         new ErrorsInstrumentation(),
-        new ConsoleInstrumentation(),
+        new ConsoleInstrumentation({
+          disabledLevels: [LogLevel.DEBUG, LogLevel.TRACE],
+        }),
         new SessionInstrumentation(),
       ],
     });
