@@ -1,5 +1,5 @@
-import { MainNav } from "@/components/main-nav";
-import { UserNav } from "@/components/user-nav";
+import { MainNav } from "@/components/layouts/app/main-nav";
+import { UserNav } from "@/components/layouts/app/user-nav";
 import { useUserQuery } from "@/hooks/user";
 import { Navigate, Outlet } from "@tanstack/react-router";
 

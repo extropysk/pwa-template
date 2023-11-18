@@ -18,13 +18,12 @@ interface MutationParams {
   onSuccess?: () => void;
 }
 
-export const useLogInMutation = ({ onSuccess }: MutationParams) => {
+export const useLogInMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: User) => setItem<User>(USER_KEY, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [USER_KEY] });
-      onSuccess?.();
     },
   });
 };

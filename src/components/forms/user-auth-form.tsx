@@ -16,7 +16,6 @@ import { Input } from "@/components/ui/input";
 import { useLogInMutation } from "@/hooks/user";
 import { cn } from "@/utils/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -29,11 +28,7 @@ type UserAuthFormValues = z.infer<typeof userAuthFormSchema>;
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const navigate = useNavigate();
-
-  const { mutate, isPending } = useLogInMutation({
-    onSuccess: () => navigate({ to: "/app" }),
-  });
+  const { mutate: logIn, isPending } = useLogInMutation();
 
   const form = useForm<UserAuthFormValues>({
     resolver: zodResolver(userAuthFormSchema),
@@ -43,7 +38,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   });
 
   function onSubmit(data: UserAuthFormValues) {
-    mutate(data);
+    logIn(data);
   }
 
   return (
@@ -58,7 +53,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="test@extropy.sk" {...field} />
+                    <Input placeholder="enter any email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -83,12 +78,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Button variant="outline" type="button" disabled={isPending}>
-        {isPending ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-        ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
-        )}{" "}
+      <Button variant="outline" type="button" disabled>
         Github
       </Button>
     </div>

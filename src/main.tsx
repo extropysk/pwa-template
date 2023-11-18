@@ -1,4 +1,4 @@
-import AppLayout from "@/components/layouts/app-layout.tsx";
+import AppLayout from "@/components/layouts/app/app-layout.tsx";
 import { ThemeProvider } from "@/components/theme-provider.tsx";
 import { Toaster } from "@/components/ui/toaster.tsx";
 import SettingsAppearancePage from "@/pages/app/appearance.tsx";
