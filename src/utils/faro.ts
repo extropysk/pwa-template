@@ -7,7 +7,7 @@ import {
   faro,
   initializeFaro,
 } from "@grafana/faro-web-sdk";
-import { getEnv } from "./config.utils";
+import { getEnv } from "./config";
 
 export const initFaro = () => {
   const faro = getEnv("VITE_FARO");
