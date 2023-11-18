@@ -1,7 +1,7 @@
 import { cn } from "@/utils/ui";
 
 interface ContainerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   fullWidth?: boolean;
   title: string;
   description?: string;
