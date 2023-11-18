@@ -6,6 +6,10 @@ interface ImageProps
     HTMLImageElement
   > {}
 
-export const Image = (props: ImageProps) => {
-  return <img {...props}>{props.children}</img>;
+export const Image = ({ alt, ...props }: ImageProps) => {
+  return (
+    <img alt={alt ?? ""} {...props}>
+      {props.children}
+    </img>
+  );
 };

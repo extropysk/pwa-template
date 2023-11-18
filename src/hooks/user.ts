@@ -14,10 +14,6 @@ export const useUserQuery = () => {
   });
 };
 
-interface MutationParams {
-  onSuccess?: () => void;
-}
-
 export const useLogInMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
