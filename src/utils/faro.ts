@@ -7,17 +7,16 @@ import {
   faro,
   initializeFaro,
 } from "@grafana/faro-web-sdk";
-import { getEnv } from "./config";
 
 export const initFaro = () => {
-  const faro = getEnv("VITE_FARO");
+  const faro = import.meta.env.VITE_FARO;
   if (faro) {
     initializeFaro({
       url: faro,
       app: {
-        name: getEnv("VITE_APP_NAME"),
-        version: getEnv("VITE_APP_VERSION"),
-        environment: getEnv("MODE"),
+        name: import.meta.env.VITE_APP_NAME,
+        version: import.meta.env.VITE_APP_VERSION,
+        environment: import.meta.env.MODE,
       },
       instrumentations: [
         new ErrorsInstrumentation(),

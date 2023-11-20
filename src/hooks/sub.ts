@@ -1,4 +1,3 @@
-import { getEnv } from "@/utils/config";
 import { useEffect, useState } from "react";
 
 export function useSub() {
@@ -38,7 +37,7 @@ export function useSub() {
 
     subscription = await reg?.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: getEnv("VITE_VAPID_PUBLIC"),
+      applicationServerKey: import.meta.env.VITE_VAPID_PUBLIC,
     });
     setSubscription(subscription);
   };
