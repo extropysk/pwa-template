@@ -13,7 +13,42 @@ export default defineConfig({
       filename: "sw.js",
       strategies: "injectManifest",
       injectRegister: "auto",
-      manifest: false,
+      includeAssets: ["icons/favicon.ico", "icons/apple-touch-icon.png"],
+      manifest: {
+        name: "pwa",
+        short_name: "pwa",
+        description: "pwa app",
+        icons: [
+          {
+            src: "icons/pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "icons/pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "icons/pwa-maskable-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "maskable",
+          },
+          {
+            src: "icons/pwa-maskable-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
+        ],
+        start_url: "/",
+        display: "standalone",
+        background_color: "#FFFFFF",
+        theme_color: "#FFFFFF",
+      },
       injectManifest: {
         injectionPoint: null,
       },
