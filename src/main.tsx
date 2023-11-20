@@ -9,9 +9,7 @@ import { registerSW } from "virtual:pwa-register";
 import "./index.css";
 import { initFaro } from "./utils/faro.ts";
 
-console.log(
-  `${import.meta.env.VITE_APP_NAME} v${import.meta.env.VITE_APP_VERSION}`
-);
+console.log(`version: ${import.meta.env.VITE_APP_VERSION}`);
 
 if ("serviceWorker" in navigator) {
   registerSW();

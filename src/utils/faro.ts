@@ -14,7 +14,7 @@ export const initFaro = () => {
     initializeFaro({
       url: faro,
       app: {
-        name: import.meta.env.VITE_APP_NAME,
+        name: "pwa",
         version: import.meta.env.VITE_APP_VERSION,
         environment: import.meta.env.MODE,
       },
