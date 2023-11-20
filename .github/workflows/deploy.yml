@@ -39,8 +39,7 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          VITE_APP_NAME: $npm_package_name
-          VITE_APP_VERSION: $npm_package_version
+          VITE_APP_VERSION: ${{ github.sha }}
           VITE_FARO: ${{ secrets.FARO }}
           VITE_VAPID_PUBLIC: ${{ secrets.VAPID_PUBLIC }}
 
