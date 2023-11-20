@@ -7,6 +7,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { initFaro } from "./utils/faro.ts";
+import { registerSW } from "virtual:pwa-register";
+
+if ("serviceWorker" in navigator) {
+  registerSW();
+}
 
 initFaro();
 const queryClient = new QueryClient();
