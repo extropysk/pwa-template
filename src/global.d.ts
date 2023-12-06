@@ -2,7 +2,6 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_APP_VERSION: string;
   readonly VITE_FARO: string;
   readonly VITE_VAPID_PUBLIC: string;
 }
