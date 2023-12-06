@@ -10,7 +10,6 @@ import "./index.css";
 import { initFaro } from "./utils/faro.ts";
 
 console.log(`version: ${process.env.APP_VERSION}`);
-console.log(`version2: ${process.env.APP_VERSION2}`);
 
 if ("serviceWorker" in navigator) {
   registerSW();
