@@ -13,11 +13,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       VitePWA({
-        srcDir: "src",
         registerType: "autoUpdate",
-        filename: "sw.js",
-        strategies: "injectManifest",
-        injectRegister: "auto",
         includeAssets: ["icons/favicon.ico", "icons/apple-touch-icon.png"],
         manifest: {
           name: "pwa",
