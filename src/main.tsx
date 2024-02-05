@@ -5,15 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { registerSW } from "virtual:pwa-register";
 import "./index.css";
 import { initFaro } from "./utils/faro.ts";
 
 console.log(`version: ${process.env.APP_VERSION}`);
-
-if ("serviceWorker" in navigator) {
-  registerSW();
-}
 
 initFaro();
 const queryClient = new QueryClient();
